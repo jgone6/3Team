@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="page-section portfolio" id="portfolio">
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Portfolio Grid Items-->
+        <div class="row justify-content-center">
+            <!-- Portfolio Item 1-->
+            {% if posts %}
+            {% for post in posts %}
+            <div class="col-md-6 col-lg-4 mb-5">
+                <a data-toggle="modal" href="/post/{{ post.id }}">
+                    <img class="img-fluid" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="..."/>
+                </a>
+                <h0 class="text-secondary">{{ post.title }}</h0>
+                <h3 class="col-8">{{ post.writer }}</h3>
+                <h3 onclick="sendlike({{ post.id }}, this)" class="col-2">
+                    {% if user in post.like.all %}
+                        ♥
+                    {% else %}
+                        ♡
+                    {% endif %}
+                </h3>
+                <h0 class="col-2"> {{ post.like.count }}</h0>
+
+            </div>
+
+            {% endfor %}
+            {% endif %}
+        </div>
+        <script>
+                function sendlike(bid, event) {
+                    var httpRequest = new XMLHttpRequest();
+
+			        httpRequest.onreadystatechange = function() {
+				    if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
+                        var json = JSON.parse(httpRequest.responseText);
+
+                        if (json['message'] == 'add')
+                        {
+                            event.innerText = "♥"
+                            event.nextSibling.nextSibling.innerText = json['like_cnt']
+                        }
+
+                        else if (json['message'] == 'del')
+                        {
+                            event.innerText = "♡"
+                            event.nextSibling.nextSibling.innerText = json['like_cnt']
+                        }
+				    }
+			    };
+
+			    httpRequest.open("GET", "/like/" + bid, true);
+			    httpRequest.send();
+                }
+        </script>
+    </div>
+</section>
+
+{% endblock %}
