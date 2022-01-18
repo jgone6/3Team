@@ -16,20 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-import Comment.views
-import users.views
+import Member.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('register/', Comment.views.register),
-    path('list/', Comment.views.posts),
-    path('post/<int:bid>', Comment.views.post),
-    path('delete/<int:bid>', Comment.views.delete),
-    path('update/<int:bid>', Comment.views.update),
-    path('signup/', users.views.signup),
-    path('login/', users.views.userlogin),
-    path('logout/', users.views.userlogout),
-    path('', Comment.views.home),
-    path('like/<int:bid>', Comment.views.like),
-
+    path('', Member.views.create),
 ]

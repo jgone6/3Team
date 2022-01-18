@@ -20,13 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-qd-^d#rgv^)uso0(knif(tmgefwvy!t7k5jo91p#y47@i(!c=b'
+SECRET_KEY = 'django-insecure-i24m3q-%_t!5s17r*o6f!5wn+)y5*1f$ki-s!h(u0)afs&7#6h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', ]
-
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -37,8 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Member',
+    'Video',
+    'Tag',
     'Comment',
-
 ]
 
 MIDDLEWARE = [
@@ -75,20 +76,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': '[DB 이름]',
+#        'USER': '[DB 접속 ID]',
+#        'PASSWORD': '[DB 접속 PW]',
+#        'HOST': '[DB 서버 IP주소]',
+#        'PORT': '[DB 서버 포트번호]',
+#        'OPTIONS': {
+#            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"'
+#        }
+#    }
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Comment1',
-        'USER': 'root',
-        'PASSWORD': 'qwer1234',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"'
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -124,8 +130,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static1/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_URL = 'static/'
+# STATICFILES_DIRS = [BASE_DIR / 'static']
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

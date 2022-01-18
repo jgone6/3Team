@@ -1,11 +1,12 @@
-from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
+from Member.models import Member
+from Video.models import Video
+
 
 class Comment(models.Model):
-    like = models.ManyToManyField(User, related_name='likes', blank=True)
-    writer = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    contents = models.TextField()
+    member_id = models.ForeignKey(Member, on_delete=models.CASCADE)
+    video_id = models.ForeignKey(Video, on_delete=models.CASCADE)
     create_date = models.DateTimeField(auto_now_add=True)
+    content = models.CharField(max_length=100)
