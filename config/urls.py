@@ -17,8 +17,14 @@ from django.contrib import admin
 from django.urls import path
 
 import Video.views
+import Member.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Video.views.ss),
+    path('users/login', Member.views.userlogin),
+    path('users/register', Member.views.signup),
+    path('users/forgetID', Member.views.findID),
+    path('users/forgetpassword', Member.views.findPassword),
+    path('users/announceID', Member.views.announceID),
 ]
