@@ -21,4 +21,6 @@ import Video.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Video.views.ss),
+    path('Video/register',Video.views.register),
+    path('Video/register',Video.views.posts)
 ]
