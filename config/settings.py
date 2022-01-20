@@ -81,7 +81,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'alphatube',
-        'USER': 'Younghu',
+        'USER': 'jerry',
         'PASSWORD': 'qwer1234',
         'HOST': '172.30.1.129',
         'PORT': '3306',
