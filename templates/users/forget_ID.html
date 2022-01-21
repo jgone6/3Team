@@ -9,6 +9,7 @@
 
 <body id="yDmH0d" class="nyoS7c UzCXuf EIlDfe" jscontroller="Uas9Hd"
       jsaction="rcuQ6b:npT2md;click:FAbpgf;GvneHb:.CLIENT;wINJic:.CLIENT;qako4e:.CLIENT;TSpWaf:.CLIENT;nHjqDd:.CLIENT;keydown:.CLIENT;u0pjoe:.CLIENT">
+
 <div class="H2SoFe LZgQXe TFhTPc" data-continent="Eastern Asia" data-session-region="KR">
     <div class="RAYh1e LZgQXe qmmlRd" id="initialView" role="presentation" jsname="WsjYwc" jscontroller="GHsEdb"
          jsaction="rcuQ6b:wVXPKc,eyofDf;CfTBWd:r0xNSb;enEq8c:Yd2OHe;EJh3N:vYWWBd;iFFCZc:nnGvjf;Rld2oe:oUMEzf;FzgWvd:oUMEzf;">
@@ -45,7 +46,7 @@
                             <!-- Contact Section Form-->
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 col-xl-7">
-                                    <form method="post">
+                                    <form method="post" action="/users/forgetpassword">
                                         {% csrf_token %}
                                         <div class="form-floating mb-3">
                                             <label >닉네임 : </label>
@@ -64,9 +65,7 @@
                                             <span class="helptext">본인소유의 핸든폰 번호를 정확하게 입력하시오.</span>
                                         </div>
                                         <br>
-                                        <input type="submit" value="제출"><span class="helptext"> &nbsp; → 닉네임과 아이디 제출 후 나의 아이디 확인하기를 눌러주세요.</span>
-                                        <ul></ul>
-                                        <a href="/users/announceID">나의 아이디 확인하기</a>
+                                        <input type="submit" value="제출">
                                     </form>
                                 </div>
                             </div>

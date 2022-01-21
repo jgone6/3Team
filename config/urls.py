@@ -26,5 +26,7 @@ urlpatterns = [
     path('users/register', Member.views.signup),
     path('users/forgetID', Member.views.findID),
     path('users/forgetpassword', Member.views.findPassword),
-    path('users/announceID', Member.views.announceID),
+    path('users/changepassword', Member.views.changePassword),
+    path('users/error_ID', Member.views.error_ID),
+    path('users/error_password', Member.views.error_password),
 ]
