@@ -15,12 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 import Video.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Video.views.ss),
-    path('Video/register',Video.views.register),
-    path('Video/register',Video.views.posts)
-]
+    path('Video/upload',Video.views.upload),
+    path('Video/list',Video.views.posts),
+    path('Video/mylist',Video.views.myposts),
+    path('Video/test2', Video.views.test2),
+    path('Video/tag/<str:tags>', Video.views.getTag),
+    path('Video/list/music', Video.views.list_music),
+    path('Video/list/var', Video.views.list_var),
+    path('Video/list/geo', Video.views.list_geo),
+    path('Video/list/edu', Video.views.list_edu),
+    path('Video/read/<int:bid>', Video.views.read),
+    path('Video/delete/<int:bid>', Video.views.delete),
+    path('Video/update/<int:bid>', Video.views.update),
+    path('Video/readmine/<int:bid>', Video.views.readmine),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

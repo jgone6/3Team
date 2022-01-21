@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+
+
+    </script>
+
+</head>
+<body>
+
+<form action="/Video/upload" method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <!--&lt;!&ndash;    {{ form.title }}&ndash;&gt;  하나씩 뽑아오기-->
+    <div>
+        제목 : {{ form.title }}
+    </div>
+    <div>
+        태그 :
+        <div>{{form.tag}}</div>
+        <a>태그는 음악,예능,자연,학습만 입력해주세요</a>
+
+    </div>
+
+
+
+
+<!--    <select onchange="selectBoxChange(this.value);">-->
+<!--  <option value="음악">음악</option>-->
+<!--  <option value="예능">예능</option>-->
+<!--  <option value="자연">자연</option>-->
+<!--  <option value="학습">학습</option>-->
+<!--</select>-->
+<!--    <select name="items1" id="tag">-->
+<!--        <option value="1">음악</option>-->
+<!--        <option value="2">예능</option>-->
+<!--        <option value="3">자연</option>-->
+<!--        <option value="4">학습</option>-->
+<!--    </select>-->
+
+
+
+
+    <div>
+        썸네일 : {{ form.file }}
+    </div>
+    <div>
+        동영상파일 : {{ form.file2 }}
+    </div>
+
+    <button type="button" onclick="check">Upload</button>
+
+
+
+
+</form>
+
+
+<script>
+
+function check()
+{
+    if ( {{form.tag}} == "자연"){
+    alert("자연");
+    exit;
+    }
+
+
+}
+
+    </script>
+
+</body>
