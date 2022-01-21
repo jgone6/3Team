@@ -25,11 +25,7 @@ def getTag(request, tags):
 
     return JsonResponse({'message':json})
 
-
-
-
-
-
+@login_required()
 def upload(request):
     if request.method == "GET":
         videoform = VideoForm()  # 입력칸에 아무것도 없는 상태로 준다
@@ -41,6 +37,7 @@ def upload(request):
         videoform = VideoForm(request.POST, request.FILES)
         if videoform.is_valid():
             video = videoform.save()
+            video.writer = request.user
             video.save()
             return redirect('/Video/mylist')
         else:
