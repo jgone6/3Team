@@ -13,7 +13,7 @@
 <br>
 <br>
 
-<form action="/Video/upload" method="post" enctype="multipart/form-data" novalidate>
+<form method="post" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
     <!--&lt;!&ndash;    {{ form.title }}&ndash;&gt;  하나씩 뽑아오기-->
     <div>
@@ -23,18 +23,22 @@
         태그 :
         <div>
             <select onchange="selectBoxChange({{ form.tag }});">
-                <option {{ form.tag }} 음악 </option>
-                <option {{ form.tag }} 예능 </option>
-                <option {{ form.tag }} 자연 </option>
-                <option {{ form.tag }} 학습 </option>
+                <option {{ form.tag }} 음악
+                </option>
+                <option {{ form.tag }} 예능
+                </option>
+                <option {{ form.tag }} 자연
+                </option>
+                <option {{ form.tag }} 학습
+                </option>
             </select>
 
-<!--                <select onchange="selectBoxChange(this.value);">-->
-<!--      <option value="음악">음악</option>-->
-<!--      <option value="예능">예능</option>-->
-<!--      <option value="자연">자연</option>-->
-<!--      <option value="학습">학습</option>-->
-<!--    </select>-->
+            <!--                <select onchange="selectBoxChange(this.value);">-->
+            <!--      <option value="음악">음악</option>-->
+            <!--      <option value="예능">예능</option>-->
+            <!--      <option value="자연">자연</option>-->
+            <!--      <option value="학습">학습</option>-->
+            <!--    </select>-->
 
 
         </div>
@@ -43,12 +47,12 @@
     </div>
 
 
-<!--        <select onchange="selectBoxChange(this.value);">-->
-<!--      <option value="음악">음악</option>-->
-<!--      <option value="예능">예능</option>-->
-<!--      <option value="자연">자연</option>-->
-<!--      <option value="학습">학습</option>-->
-<!--    </select>-->
+    <!--        <select onchange="selectBoxChange(this.value);">-->
+    <!--      <option value="음악">음악</option>-->
+    <!--      <option value="예능">예능</option>-->
+    <!--      <option value="자연">자연</option>-->
+    <!--      <option value="학습">학습</option>-->
+    <!--    </select>-->
     <!--    <select name="items1" id="tag">-->
     <!--        <option value="1">음악</option>-->
     <!--        <option value="2">예능</option>-->
@@ -92,6 +96,7 @@
 <!--        console.log(value);-->
 
 <!--    }-->
+
 
 
 

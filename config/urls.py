@@ -19,21 +19,37 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 import Video.views
+import Member.views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', Video.views.ss),
-    path('Video/upload',Video.views.upload),
-    path('Video/list',Video.views.posts),
-    path('Video/mylist',Video.views.myposts),
-    path('Video/test2', Video.views.test2),
-    path('Video/tag/<str:tags>', Video.views.getTag),
-    path('Video/list/music', Video.views.list_music),
-    path('Video/list/var', Video.views.list_var),
-    path('Video/list/geo', Video.views.list_geo),
-    path('Video/list/edu', Video.views.list_edu),
-    path('Video/read/<int:bid>', Video.views.read),
-    path('Video/delete/<int:bid>', Video.views.delete),
-    path('Video/update/<int:bid>', Video.views.update),
-    path('Video/readmine/<int:bid>', Video.views.readmine),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+
+                  path('Video/upload', Video.views.upload),
+                  path('Video/list', Video.views.posts),
+                  path('Video/mylist', Video.views.myposts),
+                  path('Video/test2', Video.views.test2),
+                  path('Video/tag/<str:tags>', Video.views.getTag),
+                  path('Video/list/music', Video.views.list_music),
+                  path('Video/list/var', Video.views.list_var),
+                  path('Video/list/geo', Video.views.list_geo),
+                  path('Video/list/edu', Video.views.list_edu),
+                  path('Video/read/<int:bid>', Video.views.read),
+                  path('Video/delete/<int:bid>', Video.views.delete),
+                  path('Video/update/<int:bid>', Video.views.update),
+                  path('Video/readmine/<int:bid>', Video.views.readmine),
+                  path('', Video.views.ss),
+                  path('users/login', Member.views.userlogin),
+                  path('users/register', Member.views.signup),
+                  path('users/forgetID', Member.views.findID),
+                  path('users/forgetpassword', Member.views.findPassword),
+                  path('users/changepassword', Member.views.changePassword),
+                  path('users/error_ID', Member.views.error_ID),
+                  path('users/error_password', Member.views.error_password),
+                  path('users/logout',Member.views.logout),
+
+
+
+
+
+
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

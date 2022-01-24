@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Video',
+    'Tag',
+    'Member',
+    'Comment',
 ]
 
 MIDDLEWARE = [
@@ -75,25 +78,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'alphatube',
-    #     'USER': 'gyuho',
-    #     'PASSWORD': 'qwer1234',
-    #     'HOST': '172.30.1.129',
-    #     'PORT': '3306',
-    #     'OPTIONS': {
-    #         'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"'
-    #     }
     'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'three',
-            'USER': 'root',
-            'PASSWORD': 'qwer1234',
-            'HOST': '127.0.0.1',
-            'PORT': '3306',
-            'OPTIONS': {
-                'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'alphatube',
+        'USER': 'gyuho',
+        'PASSWORD': 'qwer1234',
+        'HOST': '172.30.1.129',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"'
         }
     }
 }
@@ -138,7 +131,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #사용자가 업로드한 파일 관리
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
