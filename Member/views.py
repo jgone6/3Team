@@ -12,11 +12,14 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 
 # Create your views here.
 
 # 로그인
+
 def userlogin(request):
     if request.method == "GET":
         loginForm = AuthenticationForm()
@@ -27,11 +30,12 @@ def userlogin(request):
         if loginForm.is_valid():
             print('로그인 성공')
             login(request, loginForm.get_user())
-            return redirect('/')
+            # return redirect('/Video/list')
+            return redirect('/Video/list')
         else:
             print('로그인 실패')
+            # return redirect('/users/login')
             return redirect('/users/login')
-
 
 # 회원가입
 def signup(request):
@@ -46,7 +50,8 @@ def signup(request):
             member = memberForm.save(commit=False)
             member.user = user
             member.save()
-            return redirect('/users/register')
+            # return redirect('/users/register')
+            return redirect('/users/login')
 
 
 # ID 찾기
@@ -115,4 +120,5 @@ def error_password(request):
 # 로그아웃
 def logout(request):
     auth.logout(request)
+    # return HttpResponseRedirect('/users/login')
     return HttpResponseRedirect('/users/login')

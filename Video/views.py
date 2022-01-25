@@ -50,8 +50,8 @@ def upload(request):
 
 
 def ss(request):
-
-    return render(request, 'Video/list.html')
+    posts = Video.objects.all()
+    return render(request, 'video/list.html', {'posts': posts})
 
 def posts(request):
     posts = Video.objects.all()  # board table에서 모든 데이터를 다 가져옴
@@ -118,29 +118,54 @@ def delete(request, bid) :
 
 
 
+# @login_required(login_url='/users/login')
+# def update(request, bid) :
+#     post = Video.objects.get(Q(id=bid))  #게시글 하나를 가져오는것
+#     if request.method == "GET" :
+#         videoForm = VideoForm()
+#         #특정 조건 id에 해당하는 값을 저장한다.
+#         return render(request,'Video/update.html',{'videoForm' : videoForm})
+#     elif request.method == "POST" :
+#         videoForm = VideoForm(request.POST, request.FILES)
+#         print(videoForm.cleaned_data['title'])
+#         if videoForm.is_valid():   #boardForm안에 값이 유효한다
+#             post.title = videoForm.cleaned_data['title']
+#             post.tag = videoForm.cleaned_data['tag']
+#             post.file = videoForm.cleaned_data['file']
+#             post.file2 = videoForm.cleaned_data['file2']
+#             post.writer = request.user
+#             post.save()
+#             print("1")
+#             return redirect('/Video/list')
+#
+#             # return render(request, 'Video/list.html',)
+#         else:
+#             return redirect('/')
+
 @login_required(login_url='/users/login')
 def update(request, bid) :
     post = Video.objects.get(Q(id=bid))  #게시글 하나를 가져오는것
+
+    if request.user != post.writer:
+        return render(request, 'Video/list.html')
+
     if request.method == "GET" :
-        videoForm = VideoForm()
+        videoForm = VideoForm(instance=post)
         #특정 조건 id에 해당하는 값을 저장한다.
         return render(request,'Video/update.html',{'videoForm' : videoForm})
     elif request.method == "POST" :
         videoForm = VideoForm(request.POST, request.FILES)
-        print(videoForm.cleaned_data['title'])
-        if videoForm.is_valid():   #boardForm안에 값이 유효한다
+
+        # boardForm에서 사용자가 보내온 데이터를 받느다
+        if videoForm.is_valid():   #boardForm안에 값이 유효한다면
             post.title = videoForm.cleaned_data['title']
             post.tag = videoForm.cleaned_data['tag']
             post.file = videoForm.cleaned_data['file']
             post.file2 = videoForm.cleaned_data['file2']
-            post.writer = request.user
             post.save()
-            print("1")
             return redirect('/Video/list')
 
             # return render(request, 'Video/list.html',)
-        else:
-            return redirect('/')
 
 
 
