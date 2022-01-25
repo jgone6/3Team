@@ -46,7 +46,7 @@ urlpatterns = [
                   path('users/error_ID', Member.views.error_ID),
                   path('users/error_password', Member.views.error_password),
                   path('users/logout',Member.views.logout),
-
+                  path('Video/test',Video.views.requestapi1),
 
 
 

@@ -7,7 +7,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 # from Video.forms import VideoForm
 from django.views.decorators.http import require_POST
-
+import requests
+import json
 from Video.models import Video
 
 from .forms import VideoForm
@@ -44,6 +45,7 @@ def upload(request):
         else:
             videoform = VideoForm()
             return render(request, 'Video/upload.html', {'form': videoform})
+
 
 
 
@@ -168,10 +170,6 @@ def update(request, bid) :
             # return render(request, 'Video/list.html',)
 
 
-
-
-
-
 # def update(request, bid):
 #     post = Video.objects.get(Q(id=bid))  # 게시글 하나를 가져오는것
 #     if request.user != post.writer:
@@ -192,3 +190,6 @@ def update(request, bid) :
 #             post.save()
 #             # return redirect('/board/read/' + str(bid))
 #             return redirect('/Video/list')
+
+def requestapi1(request):
+    return render(request, 'Video/test5.html')
