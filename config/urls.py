@@ -44,11 +44,15 @@ urlpatterns = [
                   path('users/forgetID', Member.views.findID),
                   path('users/forgetpassword', Member.views.findPassword),
                   path('users/changepassword', Member.views.changePassword),
-                  path('users/error_ID', Member.views.error_ID),
-                  path('users/error_password', Member.views.error_password),
+                  path('users/error', Member.views.error),
                   path('users/request_api2', Member.views.request_api2),
+                  path('users/request_api3', Member.views.request_api3),
                   path('users/kakaologout', Member.views.kakao_logout),
                   path('users/kakaologout2', Member.views.kakao_logout2),
-                  path('oauth', Member.views.kakao_signup),
+                  path('kakaologin', Member.views.kakao_login),
+                  path('kakaosignup', Member.views.kakao_signup),
+                  path('users/choose_signup', Member.views.signup_method),
+                  path('users/choose_logout', Member.views.logout_method),
+                  path('users/choose_login', Member.views.login_method),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

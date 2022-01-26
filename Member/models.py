@@ -8,4 +8,3 @@ class Member(models.Model):
     nickname = models.CharField(max_length=10)
     phone = models.CharField(max_length=15)
     new_password = models.CharField(max_length=15, blank=True)
-    email = models.EmailField(max_length=128, null=True)
