@@ -20,6 +20,8 @@ from django.conf.urls.static import static
 
 import Video.views
 import Member.views
+import Comment.views
+
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
@@ -47,6 +49,25 @@ urlpatterns = [
                   path('users/error_password', Member.views.error_password),
                   path('users/logout',Member.views.logout),
                   path('Video/test',Video.views.requestapi1),
+                  path('Video/google',Video.views.main),
+
+                  path('comment/list', Comment.views.comment_list),
+                  path('comment/write', Comment.views.write),
+                  path('comment/content/<int:bid>',Comment.views.comment_content),
+                  path('comment/delete/<int:bid>', Comment.views.comment_delete),
+                  path('comment/update/<int:bid>', Comment.views.comment_update),
+
+
+
+
+
+                  # path('Video/get_service',Video.views.get_service),
+                  # path('Video/get_first_profile_id',Video.views.get_first_profile_id),
+                  #
+                  #
+                  # path('Video/get_results',Video.views.get_results),
+                  # path('Video/print_results',Video.views.print_results),
+
 
 
 
