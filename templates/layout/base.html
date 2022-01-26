@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 {% load static %}
-
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -59,38 +57,39 @@
 </head>
 <body id="page-top">
 <!-- Navigation-->
+
 <div>
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand" href="http://localhost:8000/Video/list">알파튜브</a>
+        <a class="navbar-brand" href="http://localhost:8000/Video/list">알파튜브 </a>
         <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-            Menu
+                aria-expanded="false" aria-label="Toggle navigation">Menu
             <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://localhost:8000/Video/mylist">내페이지</a></li>
 
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="http://localhost:8000/Video/mylist">내페이지</a></li>
-
+                {% if request.user.is_authenticated or test %}
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="Video/upload">게시글작성</a></li>
 
                 {% if request.user.is_authenticated %}
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="http://localhost:8000/users/logout">로그아웃</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="Video/upload">게시글작성</a></li>
-                {% else %}
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="http://localhost:8000/users/login">로그인</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://localhost:8000/users/logout">로그아웃</a></li>
 
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="http://localhost:8000/users/signup2">회원가입</a></li>
+                {% elif test %}
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="https://kauth.kakao.com/oauth/logout?client_id=96e603d6c4c66606ae14132233e73702&logout_redirect_uri=http://127.0.0.1:8000">카카오 로그아웃</a></li>
+
                 {% endif %}
 
+                {% else %}
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://localhost:8000/users/login">로그인</a></li>
 
-                <!--                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>-->
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://localhost:8000/users/register">회원가입</a></li>
+
+                {% endif %}
+
             </ul>
         </div>
 

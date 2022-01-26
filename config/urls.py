@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -39,10 +39,16 @@ urlpatterns = [
                   path('Video/readmine/<int:bid>', Video.views.readmine),
                   path('', Video.views.ss),
                   path('users/login', Member.views.userlogin),
+                  path('users/logout', Member.views.logout),
                   path('users/register', Member.views.signup),
                   path('users/forgetID', Member.views.findID),
                   path('users/forgetpassword', Member.views.findPassword),
                   path('users/changepassword', Member.views.changePassword),
                   path('users/error_ID', Member.views.error_ID),
                   path('users/error_password', Member.views.error_password),
+                  path('users/request_api2', Member.views.request_api2),
+                  path('users/kakaologout', Member.views.kakao_logout),
+                  path('users/kakaologout2', Member.views.kakao_logout2),
+                  path('oauth', Member.views.kakao_signup),
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
