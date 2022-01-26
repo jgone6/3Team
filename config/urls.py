@@ -52,7 +52,7 @@ urlpatterns = [
                   path('Video/google',Video.views.main),
 
                   path('comment/list', Comment.views.comment_list),
-                  path('comment/write', Comment.views.write),
+                  path('comment/write/<int:bid>', Comment.views.write),
                   path('comment/content/<int:bid>',Comment.views.comment_content),
                   path('comment/delete/<int:bid>', Comment.views.comment_delete),
                   path('comment/update/<int:bid>', Comment.views.comment_update),

@@ -177,54 +177,28 @@
     </div>
     <div>
 
-        <div>
-            <td>
-                프로필
-            </td>
-            <td>
-                아이디
-            </td>
-            <td>
-                댓글작성시간
-            </td>
-            </div>
-        <div>
-            <td>
-                프로필
-            </td>
-            <td>
-                아이디
-            </td>
-            <td>
-                댓글작성시간
-            </td>
-            </div>
-        <div>
-            <td>
-                프로필
-            </td>
-            <td>
-                아이디
-            </td>
-            <td>
-                댓글작성시간
-            </td>
-            </div>
-        <div>
-            <td>
-                프로필
-            </td>
-            <td>
-                아이디
-            </td>
-            <td>
-                댓글작성시간
-            </td>
-            </div>
+    <form action="/comment/write/{{bid}}" method="POST">
+        {%csrf_token%}
+        <input type="text" name="comment" placeholder="댓글을 입력하세요">
+        <input type="submit" value="작성">
+    </form>
+    <br>
+    <br>
 
+    {% for var in comment_list %}
+    <div class="u_cbox_thumb u_cbox_post">
 
-
+        <span> {{ var.writer }} </span>
+        <br>
+        <span> {{ var.contents}}   </span>
+        <br>
+        <span> {{ var.create_date }}</span>
+        <br>
     </div>
+    {% endfor %}
+
+
+</div>
 
 
 </div>

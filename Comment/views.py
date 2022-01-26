@@ -1,5 +1,9 @@
+from django.db.models import Q
+
+from Video.models import Video
 from .forms import CommentForm
 from .models import Comment
+from django.shortcuts import render, redirect
 
 
 def comment_list(request):
@@ -9,7 +13,7 @@ def comment_list(request):
     return render(request, 'comment/list.html', {'comment_list': comment_list})
 
 
-def write(request):
+def write(request,bid):
     if request.method == "GET":
         commentForm = CommentForm()
         return render(request, 'comment/write.html', {'commentForm': commentForm})
@@ -18,10 +22,12 @@ def write(request):
         commentForm = CommentForm(request.POST)
 
         if commentForm.is_valid():
-            print('**')
+
             comment = commentForm.save(commit=False)
+            comment.member_id = request.user
+            comment.video_id = Video.objects.get(Q(id=bid))
             comment.save()
-            return redirect('/comment/list')
+            return redirect('/Vider/read/'+ str(bid))
 
 
 def comment_content(request, bid):
@@ -49,6 +55,6 @@ def comment_update(request, bid):
             return redirect('/comment/list')
 
 
-from django.shortcuts import render
+
 
 # Create your views here.
