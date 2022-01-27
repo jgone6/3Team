@@ -77,4 +77,5 @@
 + 구글애널리틱스 api에서 원하는 데이터를 get하기
 ---------------------------
 # <img src="https://pic.sopili.net/pub/emoji/twitter/2/72x72/231b.png" width=40 height=40>참조
-##Youtube, Google , Google Analytics ##
++ Youtube
++ Google
