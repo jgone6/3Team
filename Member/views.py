@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from Member.forms import MemberForm
 from Member.models import Member
 import requests
+from django.db import IntegrityError
 
 
 # Create your views here.
@@ -121,13 +122,14 @@ def kakao_signup(request):
     kakaoproperties = kakao_user_info.get('properties')
     kakaonickname = kakaoproperties.get('nickname')
     kakaoemail = kakaoaccounts.get('email')
-
-    user = User()
-    user.email = kakaoemail
-    user.username = kakaonickname
-    user.is_active = True
-    user.save()
-
+    try:
+        user = User()
+        user.email = kakaoemail
+        user.username = kakaonickname
+        user.is_active = True
+        user.save()
+    except IntegrityError:
+        return render(request, 'users/error_kakao_ID.html')
     return redirect('/users/login')
 
 
