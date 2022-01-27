@@ -40,7 +40,6 @@
 + Mysql
 + Django
 + Git & GitHub
-+ 
 -------------
 ## 🤚FRONTEND ##
 + Javascript
