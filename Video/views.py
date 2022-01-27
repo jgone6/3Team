@@ -5,6 +5,12 @@ import os
 # from google.analytics.data_v1beta.types import Metric
 # from google.analytics.data_v1beta.types import MetricType
 # from google.analytics.data_v1beta.types import RunReportRequest
+from django.db.models import Q
+
+from Video.models import Video
+from Comment.forms import CommentForm
+from Comment.models import Comment
+from django.shortcuts import render, redirect
 
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
@@ -18,6 +24,7 @@ from django.views.decorators.http import require_POST
 import requests
 import json
 from Video.models import Video
+from Comment.models import Comment
 import requests
 import json
 from .forms import VideoForm
@@ -350,10 +357,47 @@ def myposts(request):
 def read(request, bid):
     post = Video.objects.get(Q(id=bid))
     posts = Video.objects.all()
-    # posts = Board.objects.all()
-    return render(request, 'Video/read.html', {'read': post, 'posts': posts, 'bid' : bid } )
-    # #board/read.html페이지를 보여주고 Board.objects.get( Q(id=bid))의 값
-    # 을 'read'로 저장한다.
+    comment_list = Comment.objects.all()
+    if request.method == "GET":
+        commentform = CommentForm()  # 입력칸에 아무것도 없는 상태로 준다
+        return render(request, 'Video/read.html',
+                      {'form': commentform,'read': post, 'posts': posts, 'bid' : bid, 'comment_list': comment_list})
+    elif request.method == 'POST':
+        commentform = CommentForm(request.POST, request.FILES)
+
+        if commentform.is_valid():
+            comment = commentform.save(commit=False)
+            comment.save()
+            return redirect('/Video/read/'+str(bid))
+        else:
+            commentform = CommentForm()
+            return render(request, 'Video/read.html', {'form': commentform,'read': post, 'posts': posts, 'bid' : bid, 'comment_list': comment_list})
+    # # posts = Board.objects.all()
+    # return render(request, 'Video/read.html', {'read': post, 'posts': posts, 'bid' : bid } )
+
+# def comment_list(request):
+#     comment_list = Comment.objects.all()
+#
+#     return render(request, 'comment/list.html', {'comment_list': comment_list})
+#     # #board/read.html페이지를 보여주고 Board.objects.get( Q(id=bid))의 값
+#     # 을 'read'로 저장한다.
+
+
+# def write2(request):
+#     if request.method == "GET":
+#         commentform = CommentForm()  # 입력칸에 아무것도 없는 상태로 준다
+#         return render(request, 'comment/write.html',
+#                       {'form': commentform})
+#     elif request.method == 'POST':
+#         commentform = CommentForm(request.POST, request.FILES)
+#
+#         if commentform.is_valid():
+#             comment = commentform.save(commit=False)
+#             comment.save()
+#             return redirect('/comment/list')
+#         else:
+#             commentform = CommentForm()
+#             return render(request, 'Comment/write.html', {'form': commentform})
 
 
 def readmine(request, bid):

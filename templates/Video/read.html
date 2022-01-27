@@ -4,7 +4,7 @@
 
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="AexanAz33tC-XbQ20FAOgPnuFgp1NjtDObtGojkNT2M" />
+    <meta name="google-site-verification" content="AexanAz33tC-XbQ20FAOgPnuFgp1NjtDObtGojkNT2M"/>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
@@ -38,26 +38,32 @@
 
 
 
+
+
     </style>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4PQMVMYRD"></script>
-<script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4PQMVMYRD"></script>
+    <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-Y4PQMVMYRD');
-</script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-218103457-1"></script>
-<script>
+
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-218103457-1"></script>
+    <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-218103457-1');
-</script>
+
+
+    </script>
     <script>
      function test(value) {
         if (value==='음악') {
@@ -73,228 +79,252 @@
     }
 
 
+
+
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-218095607-1"></script>
-<script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-218095607-1"></script>
+    <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-218095607-1');
-</script>
+
+
+    </script>
 
 
 </head>
 <body id="page-top">
 
 <div>
-<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand" href="https://4c98-125-133-75-24.ngrok.io/Video/list">알파튜브</a>
-        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/Video/list">알파튜브</a>
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
 
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="/Video/mylist">내페이지 : {{request.user.username}} </a></li>
-
-
-                {% if request.user.is_authenticated %}
-
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="/users/logout">로그아웃</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="/Video/upload">게시글작성</a></li>
-                {% else %}
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="/users/login">로그인</a></li>
-
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="/users/signup2">회원가입</a></li>
-                {% endif %}
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                                                         href="/Video/mylist">내페이지 : {{request.user.username}} </a></li>
 
 
-                <!--                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>-->
-            </ul>
+                    {% if request.user.is_authenticated %}
+
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                                                         href="/users/logout">로그아웃</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                                                         href="/Video/upload">게시글작성</a></li>
+                    {% else %}
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                                                         href="/users/login">로그인</a></li>
+
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                                                         href="/users/signup2">회원가입</a></li>
+                    {% endif %}
+
+
+                    <!--                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>-->
+                </ul>
+            </div>
+
         </div>
-
-    </div>
-</nav>
-
-
+    </nav>
 </div>
 
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
 <div>
-    <a href="/Video/list">
-        <button> 목록으로가기</button>
-    </a>
-</div>
-
-<div class="video">
-    <div>
-        {% if read %}   <!--read안에 데이터가 담겨 있으면 반복문을 실행한다. -->
-        <table>
-            <thead>
-            <tr>
-<!--                            <td> {{read.writer_id}}</td>  &lt;!&ndash;read라는 객체 안에 있는 id를 보여준다 &ndash;&gt;-->
-                <td> {{read.title }}</td>
-                <!--                  <td> {{read.file}}  </td>-->
-                <td> {{read.tag}}</td>
-                <td> {{read.create_date }}</td>
-            </tr>
-            </thead>
-
-            <tr>
-                <video height="500" controls poster="/media/{{ read.file }}">
-                    <source src="/media/{{ read.file2 }}" type="video/mp4">
-                    <strong>Your browser does not support the video tag.</strong>
-                </video>
-            </tr>
-
-
-        </table>
-        {% endif %}
-    </div>
-    <div>
-
-    <form action="/comment/write/{{bid}}" method="POST">
-        {%csrf_token%}
-        <input type="text" name="comment" placeholder="댓글을 입력하세요">
-        <input type="submit" value="작성">
-    </form>
     <br>
     <br>
-
-    {% for var in comment_list %}
-    <div class="u_cbox_thumb u_cbox_post">
-
-        <span> {{ var.writer }} </span>
-        <br>
-        <span> {{ var.contents}}   </span>
-        <br>
-        <span> {{ var.create_date }}</span>
-        <br>
-    </div>
-    {% endfor %}
-
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
-
-
-</div>
-
-<div class="list_video">
+<div class="container">
     <div>
-        <div>유사한 영상</div>
+        <a href="/Video/list">
+            <button> 목록으로가기</button>
+        </a>
+    </div>
+
+    <div class="video">
+        <div>
+            {% if read %}   <!--read안에 데이터가 담겨 있으면 반복문을 실행한다. -->
+            <table>
+                <thead>
+                <tr>
+                    <!--                            <td> {{read.writer_id}}</td>  &lt;!&ndash;read라는 객체 안에 있는 id를 보여준다 &ndash;&gt;-->
+                     <td> {{read.id }}</td>
+                    <td> {{read.title }}</td>
+                    <!--                  <td> {{read.file}}  </td>-->
+                    <td> {{read.tag}}</td>
+                    <td> {{read.create_date }}</td>
+                </tr>
+                </thead>
+
+                <tr>
+                    <video height="500" controls poster="/media/{{ read.file }}">
+                        <source src="/media/{{ read.file2 }}" type="video/mp4">
+                        <strong>Your browser does not support the video tag.</strong>
+                    </video>
+                </tr>
+
+
+            </table>
+            {% endif %}
+        </div>
         <br>
-        {% if posts %}
-        {% for post in posts %}
-        {% if post.tag == read.tag %}
+        <br>
         <div>
 
-            <div>
-                <td> {{ post.id}}</td>
-                <td><a href="/Video/read/{{ post.id }}"> <img src="/media/{{post.file}} "
-                                                                                   width="100"> </a></td>
+            <form action="/comment/write/{{bid}}" method="POST">
 
-                <td> {{ post.title}}</td>
-                <td> {{ post.tag }}</td>
-
-
-                <td>{{ post.create_date }}</td>
-            </div>
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit">
+            </form>
 
         </div>
-        <tr>
-            <!--            {% if request.user == read.writer %}-->
-            <!--            <td>-->
-            <!--                <a href="/board/update/{{read.id}}">-->
-            <!--                    <button> 수정</button>-->
-            <!--                </a>-->
-            <!--            </td>  &lt;!&ndash;read라는 객체 안에 있는 id를 보여준다 &ndash;&gt;-->
-            <!--            <td>-->
-            <!--                <a href="/board/delete/{{read.id}}">-->
-            <!--                    <button> 삭제</button>-->
-            <!--                </a>-->
-            <!--            </td>-->
-            <!--            {% endif %}-->
-        </tr>
-        {% endif %}
-        {% endfor %}
-        <!--        <div>-->
-        <!--            <a href="http://localhost:8000/Video/upload">-->
-        <!--                <button> 영상 추가</button>-->
-        <!--            </a>-->
-        <!--        </div>-->
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        <div> 다른 영상 </div>
+
         <br>
-        {% if posts %}
-        {% for post in posts %}
-        {% if post.tag != read.tag %}
+        <br>
+        <br>
+
         <div>
-
-            <div>
-                <td> {{ post.id}}</td>
-                <td><a href="/Video/read/{{ post.id }}"> <img src="/media/{{post.file}} "
-                                                                                   width="100"> </a></td>
-
-                <td> {{ post.title}}</td>
-                <td> {{ post.tag }}</td>
+            {% for var in comment_list %}
+            {% if read.id == var.video_id.id %}
 
 
-                <td>{{ post.create_date }}</td>
+
+
+            <div class="u_cbox_thumb u_cbox_post">
+                <span> {{read.id }} </span>
+                <span> {{ var.video_id.id }} </span>
+
+                <span> {{ var.member_id }} </span>
+
+                <span> {{ var.content}}   </span>
+
+                <span> {{ var.create_date }}</span>
+
             </div>
 
+            {% endif %}
+
+            {% endfor %}
+
+
         </div>
-        <tr>
-            <!--            {% if request.user == read.writer %}-->
-            <!--            <td>-->
-            <!--                <a href="/board/update/{{read.id}}">-->
-            <!--                    <button> 수정</button>-->
-            <!--                </a>-->
-            <!--            </td>  &lt;!&ndash;read라는 객체 안에 있는 id를 보여준다 &ndash;&gt;-->
-            <!--            <td>-->
-            <!--                <a href="/board/delete/{{read.id}}">-->
-            <!--                    <button> 삭제</button>-->
-            <!--                </a>-->
-            <!--            </td>-->
-            <!--            {% endif %}-->
-        </tr>
-        {% endif %}
-        {% endfor %}
-        <!--        <div>-->
-        <!--            <a href="http://localhost:8000/Video/upload">-->
-        <!--                <button> 영상 추가</button>-->
-        <!--            </a>-->
-        <!--        </div>-->
-        {% endif %}
+
+
+
+
 
     </div>
-</div>
+
+    <div class="list_video">
+        <div>
+            <div>유사한 영상</div>
+            <br>
+            {% if posts %}
+            {% for post in posts %}
+            {% if post.tag == read.tag %}
+            <div>
+
+                <div>
+                    <td> {{ post.id}}</td>
+                    <td><a href="/Video/read/{{ post.id }}"> <img src="/media/{{post.file}} "
+                                                                  width="100"> </a></td>
+
+                    <td> {{ post.title}}</td>
+                    <td> {{ post.tag }}</td>
+
+
+                    <td>{{ post.create_date }}</td>
+                </div>
+
+            </div>
+            <tr>
+                <!--            {% if request.user == read.writer %}-->
+                <!--            <td>-->
+                <!--                <a href="/board/update/{{read.id}}">-->
+                <!--                    <button> 수정</button>-->
+                <!--                </a>-->
+                <!--            </td>  &lt;!&ndash;read라는 객체 안에 있는 id를 보여준다 &ndash;&gt;-->
+                <!--            <td>-->
+                <!--                <a href="/board/delete/{{read.id}}">-->
+                <!--                    <button> 삭제</button>-->
+                <!--                </a>-->
+                <!--            </td>-->
+                <!--            {% endif %}-->
+            </tr>
+            {% endif %}
+            {% endfor %}
+            <!--        <div>-->
+            <!--            <a href="http://localhost:8000/Video/upload">-->
+            <!--                <button> 영상 추가</button>-->
+            <!--            </a>-->
+            <!--        </div>-->
+            {% endif %}
+        </div>
+        <br>
+        <div>
+            <div> 다른 영상</div>
+            <br>
+            {% if posts %}
+            {% for post in posts %}
+            {% if post.tag != read.tag %}
+            <div>
+
+                <div>
+                    <td> {{ post.id}}</td>
+                    <td><a href="/Video/read/{{ post.id }}"> <img src="/media/{{post.file}} "
+                                                                  width="100"> </a></td>
+
+                    <td> {{ post.title}}</td>
+                    <td> {{ post.tag }}</td>
+
+
+                    <td>{{ post.create_date }}</td>
+                </div>
+
+            </div>
+            <tr>
+                <!--            {% if request.user == read.writer %}-->
+                <!--            <td>-->
+                <!--                <a href="/board/update/{{read.id}}">-->
+                <!--                    <button> 수정</button>-->
+                <!--                </a>-->
+                <!--            </td>  &lt;!&ndash;read라는 객체 안에 있는 id를 보여준다 &ndash;&gt;-->
+                <!--            <td>-->
+                <!--                <a href="/board/delete/{{read.id}}">-->
+                <!--                    <button> 삭제</button>-->
+                <!--                </a>-->
+                <!--            </td>-->
+                <!--            {% endif %}-->
+            </tr>
+            {% endif %}
+            {% endfor %}
+            <!--        <div>-->
+            <!--            <a href="http://localhost:8000/Video/upload">-->
+            <!--                <button> 영상 추가</button>-->
+            <!--            </a>-->
+            <!--        </div>-->
+            {% endif %}
+
+        </div>
+    </div>
 </div>
 
 </body>

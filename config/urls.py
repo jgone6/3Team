@@ -50,7 +50,7 @@ urlpatterns = [
                   path('users/logout',Member.views.logout),
                   path('Video/test',Video.views.requestapi1),
                   path('Video/google',Video.views.main),
-
+                  path('comment/write2',Comment.views.write2),
                   path('comment/list', Comment.views.comment_list),
                   path('comment/write/<int:bid>', Comment.views.write),
                   path('comment/content/<int:bid>',Comment.views.comment_content),
