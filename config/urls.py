@@ -41,13 +41,21 @@ urlpatterns = [
                   path('Video/readmine/<int:bid>', Video.views.readmine),
                   path('', Video.views.ss),
                   path('users/login', Member.views.userlogin),
+                  path('users/logout', Member.views.logout),
                   path('users/register', Member.views.signup),
                   path('users/forgetID', Member.views.findID),
                   path('users/forgetpassword', Member.views.findPassword),
                   path('users/changepassword', Member.views.changePassword),
-                  path('users/error_ID', Member.views.error_ID),
-                  path('users/error_password', Member.views.error_password),
-                  path('users/logout',Member.views.logout),
+                  path('users/error', Member.views.error),
+                  path('users/request_api2', Member.views.request_api2),
+                  path('users/request_api3', Member.views.request_api3),
+                  path('users/kakaologout', Member.views.kakao_logout),
+                  path('users/kakaologout2', Member.views.kakao_logout2),
+                  path('kakaologin', Member.views.kakao_login),
+                  path('kakaosignup', Member.views.kakao_signup),
+                  path('users/choose_signup', Member.views.signup_method),
+                  path('users/choose_logout', Member.views.logout_method),
+                  path('users/choose_login', Member.views.login_method),
                   path('Video/test',Video.views.requestapi1),
                   path('Video/google',Video.views.main),
                   path('comment/write2',Comment.views.write2),
@@ -56,6 +64,8 @@ urlpatterns = [
                   path('comment/content/<int:bid>',Comment.views.comment_content),
                   path('comment/delete/<int:bid>', Comment.views.comment_delete),
                   path('comment/update/<int:bid>', Comment.views.comment_update),
+
+
 
 
 
