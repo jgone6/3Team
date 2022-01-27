@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 {% load static %}
-
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -38,16 +36,6 @@
 
 
     </style>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4PQMVMYRD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Y4PQMVMYRD');
-</script>
-
 
     <script>
      function test(value) {
@@ -68,48 +56,45 @@
 
 </head>
 <body id="page-top">
+<!-- Navigation-->
 
-<div>
+
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand" href="https://4c98-125-133-75-24.ngrok.io/Video/list">알파튜브</a>
-        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <a class="navbar-brand" href="http://localhost:8000/Video/list"><img src="https://4.bp.blogspot.com/-aBM231KPis0/U3wyHqF4O2I/AAAAAAAABog/VERYVFqxLRo/s1600/YouTube-icon-full_color.png" width="100"> &nbsp;ALPHATUBE </a>
+        <div class="collapse navbar-collapse" id="navbarResponsive" style>
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://localhost:8000/Video/mylist">내페이지</a></li>
 
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="/Video/mylist">내페이지 : {{request.user.username}} </a></li>
+                {% if request.user.is_authenticated  %}
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded " href="Video/upload">게시글작성</a></li>
 
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://localhost:8000/users/choose_logout">로그아웃</a></li>
 
-                {% if request.user.is_authenticated %}
-
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="/users/logout">로그아웃</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="/Video/upload">게시글작성</a></li>
                 {% else %}
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="/users/login">로그인</a></li>
 
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                                     href="/users/signup2">회원가입</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://localhost:8000/users/choose_login">로그인</a></li>
+
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://localhost:8000/users/choose_signup">회원가입</a></li>
+
                 {% endif %}
-
-
-                <!--                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>-->
             </ul>
         </div>
-
     </div>
 </nav>
 
+<!-- <div class="search">-->
 
-</div>
+<!--      <input type="text">-->
+
+
+
+
+<!--            <div class="fas fa-search"><a class="nav-link py-3 px-0 px-lg-3 rounded"-->
+<!--                                                     href="http://localhost:8000/Video/mylist"></a></div>-->
+<!--    </div>-->
+
 
 
 {% block content %}

@@ -2,24 +2,17 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, SetPasswordForm
 from django.contrib.auth.models import User
 from django.db.models import Q
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import PasswordChangeForm
-
 from Member.forms import MemberForm
 from Member.models import Member
-from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth import update_session_auth_hash
-from django.contrib import messages
-from django.contrib.auth import update_session_auth_hash
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
+import requests
+from django.db import IntegrityError
 
 
 # Create your views here.
 
 # 로그인
-
 def userlogin(request):
     if request.method == "GET":
         loginForm = AuthenticationForm()
@@ -30,12 +23,11 @@ def userlogin(request):
         if loginForm.is_valid():
             print('로그인 성공')
             login(request, loginForm.get_user())
-            # return redirect('/Video/list')
-            return redirect('/Video/list')
+            return redirect('/')
         else:
             print('로그인 실패')
-            # return redirect('/users/login')
-            return redirect('/users/login')
+            return redirect('/users/error')
+
 
 # 회원가입
 def signup(request):
@@ -50,8 +42,7 @@ def signup(request):
             member = memberForm.save(commit=False)
             member.user = user
             member.save()
-            # return redirect('/users/register')
-            return redirect('/users/login')
+            return redirect('/users/register')
 
 
 # ID 찾기
@@ -67,18 +58,19 @@ def findPassword(request):
     elif request.method == "POST":
         nickname = request.POST.get('nickname')
         phone = request.POST.get('phone')
-        phone1 = Member.objects.get(Q(nickname=nickname))
-        print(phone1.phone)
-        if phone == phone1.phone:
+        try:
+            user = Member.objects.get(Q(nickname=nickname))
+        except Member.DoesNotExist:  # 에러 종류
+            return render(request, 'users/error.html')
+        if phone == user.phone:
             member = Member.objects.select_related('user').get(Q(nickname=nickname) & Q(phone=phone))
             return render(request, 'users/forget_password.html', {'member': member})
         else:
-            return render(request, 'users/error_ID.html')
+            return render(request, 'users/error.html')
 
 
 # 패스워드 변경하기
-from django.contrib.auth.hashers import check_password
-from django.contrib import messages, auth
+from django.contrib import auth
 
 def changePassword(request):
     if request.method == "GET":
@@ -93,32 +85,112 @@ def changePassword(request):
         if form.is_valid():
             form.save()
         print("비밀번호를 성공적으로 변경하였습니다.")
-        return redirect('/')
-
-
-
-        # phone = request.POST.get('phone')
-        # user_password = request.POST.get('new_password')
-        # print(phone)
-        # member = Member.objects.select_related('user').get(Q(phone=phone))
-        # print(member.user.password)
-        # member.user.password = user_password
-        # print(member.user.password)
-        # member.user.save()
+        return redirect('/users/login')
         return redirect('/')
 
 
 # 오류페이지
-def error_ID(request):
-    return render(request, 'users/error_ID.html')
-
-
-def error_password(request):
-    return render(request, 'users/error_password.html')
-
+def error(request):
+    return render(request, 'users/error.html')
 
 # 로그아웃
 def logout(request):
     auth.logout(request)
-    # return HttpResponseRedirect('/users/login')
-    return HttpResponseRedirect('/users/login')
+    return HttpResponseRedirect('/')
+
+# 카카오 회원가입
+def request_api2(request):
+    return redirect("https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=96e603d6c4c66606ae14132233e73702&redirect_uri=http://127.0.0.1:8000/kakaosignup")
+
+def kakao_signup(request):
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    data = {"grant_type": "authorization_code",
+            "client_id": "96e603d6c4c66606ae14132233e73702",
+            "redirect_uri": "http://127.0.0.1:8000/kakaosignup",
+            "code": request.GET.get('code')}
+
+    res = requests.post("https://kauth.kakao.com/oauth/token",
+                        data=data,
+                        headers=headers)
+    access_token = res.json()['access_token']
+    print(access_token)
+
+    kakao_user_info = requests.post("https://kapi.kakao.com/v2/user/me", headers={"Authorization": f"Bearer {access_token}"}, ).json()
+    kakaoid = kakao_user_info.get('id', None)
+    kakaoid = int(kakaoid)
+    kakaoaccounts = kakao_user_info.get('kakao_account')
+    kakaoproperties = kakao_user_info.get('properties')
+    kakaonickname = kakaoproperties.get('nickname')
+    kakaoemail = kakaoaccounts.get('email')
+    try:
+        user = User()
+        user.email = kakaoemail
+        user.username = kakaonickname
+        user.is_active = True
+        user.save()
+    except IntegrityError:
+        return render(request, 'users/error_kakao_ID.html')
+    return redirect('/users/login')
+
+
+# 카카오 로그인
+def request_api3(request):
+    return redirect("https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=96e603d6c4c66606ae14132233e73702&redirect_uri=http://127.0.0.1:8000/kakaologin")
+
+def kakao_login(request):
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    data = {"grant_type": "authorization_code",
+            "client_id": "96e603d6c4c66606ae14132233e73702",
+            "redirect_uri": "http://127.0.0.1:8000/kakaologin",
+            "code": request.GET.get('code')}
+
+    res = requests.post("https://kauth.kakao.com/oauth/token",
+                        data=data,
+                        headers=headers)
+    access_token = res.json()['access_token']
+    print(access_token)
+
+    kakao_user_info = requests.post("https://kapi.kakao.com/v2/user/me",
+                                    headers={"Authorization": f"Bearer {access_token}"}, ).json()
+    kakaoid = kakao_user_info.get('id', None)
+    kakaoid = int(kakaoid)
+    kakaoaccounts = kakao_user_info.get('kakao_account')
+
+    kakaoemail = kakaoaccounts.get('email')
+    print(kakaoemail)
+
+    user = User.objects.get(Q(email=kakaoemail))
+    print(user)
+
+    login(request, user)
+    return redirect('/')
+
+# 연결끊기
+def kakao_logout(request):
+    return redirect("https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=96e603d6c4c66606ae14132233e73702&redirect_uri=http://127.0.0.1:8000/users/kakaologout2")
+
+def kakao_logout2(request):
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    data = {"grant_type": "authorization_code",
+            "client_id": "96e603d6c4c66606ae14132233e73702",
+            "redirect_uri": "http://127.0.0.1:8000/users/kakaologout2",
+            "code": request.GET.get('code')}
+
+    res = requests.post("https://kauth.kakao.com/oauth/token",
+                        data=data,
+                        headers=headers)
+    access_token = res.json()['access_token']
+
+    return render(request, 'users/unlink.html', {'access_token': access_token})
+
+# 회워가입 선택
+def signup_method(request):
+    return render(request, 'users/signup_method.html')
+
+# 로그아웃 선택
+def logout_method(request):
+    return render(request, 'users/logout_method.html')
+
+# 로그인 선택
+def login_method(request):
+    return render(request, 'users/login_method.html')
