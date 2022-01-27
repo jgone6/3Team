@@ -10,6 +10,7 @@
  # <img src="https://pic.sopili.net/pub/emoji/twitter/2/72x72/1f4bb.png" width=30 height=30>개발 환경 #
 + GitHub
 + Pycharm
++ Mysql
 ----------------------------------------
 # <img src="https://pic.sopili.net/pub/emoji/twitter/2/72x72/1f5d2.png" width=30 height=30>구현한 기능 #
 + 로그인/회원가입
@@ -28,7 +29,6 @@
 + Django
 + Pillow
 + google_analytics
-+ pip
 + mysqlclient
 + oauth2client
 + google-api-python-client
@@ -39,13 +39,11 @@
 + Python
 + Mysql
 + Django
-+ Git & GitHub
 -------------
 ## 🤚FRONTEND ##
 + Javascript
 + CSS
 + Html
-+ Git
 --------------------------------------
 # ERD와 서버 Architecture #
 ## ERD 설계 ##
