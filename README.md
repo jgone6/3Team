@@ -42,9 +42,7 @@
 + ORM
 -------------
 ## 🤚FRONTEND ##
-+ Javascript
-+ CSS
-+ Html
++ Javascript Css Html
 + Bootstrap
 --------------------------------------
 # ERD와 서버 Architecture #
