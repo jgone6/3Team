@@ -50,7 +50,7 @@
 ![ERD](https://user-images.githubusercontent.com/97925049/151302210-5db7af27-5efe-4c96-8936-4f8d3fc98f34.png)
 -----------------
 ## SERVER ARCHITECTURE ##
-![설계도](https://user-images.githubusercontent.com/97925049/151302104-46385540-62e9-4f97-baf9-7e950caab776.png)
+![아키텍쳐](https://user-images.githubusercontent.com/97925049/151467213-892d76ce-7400-4fdf-b66c-583619c01ba4.png)
 -----------------------------------
 # 🆖개발하면서 어려운 점과 개선할 부분🆖 #
 --------------------------------
