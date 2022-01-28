@@ -49,7 +49,7 @@
 --------------------------------------
 # ERD와 서버 Architecture #
 ## ERD 설계 ##
-![ERD](https://user-images.githubusercontent.com/97925049/151302210-5db7af27-5efe-4c96-8936-4f8d3fc98f34.png)
+![ERD2](https://user-images.githubusercontent.com/97925049/151479511-95b8a7c3-e5fd-47e2-9279-3b65d798146d.png)
 -----------------
 ## SERVER ARCHITECTURE ##
 ![아키텍쳐](https://user-images.githubusercontent.com/97925049/151467213-892d76ce-7400-4fdf-b66c-583619c01ba4.png)
