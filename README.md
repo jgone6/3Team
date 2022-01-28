@@ -39,6 +39,7 @@
 + Python
 + Mysql
 + Django
++ ORM
 -------------
 ## 🤚FRONTEND ##
 + Javascript
