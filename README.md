@@ -40,7 +40,6 @@
 + Mysql
 + Django
 + ORM
-+ API
 -------------
 ## 🤚FRONTEND ##
 + Javascript Css Html
