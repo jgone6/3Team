@@ -1,0 +1,45 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form  method = "post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+<!--        {{videoForm}}-->
+            제목 : {{videoForm.title}}
+
+        <div>
+           태그 : <select onchange="selectBoxChange({{ videoForm.tag }});">
+                <option {{ videoForm.tag }} 음악 </option>
+                <option {{ videoForm.tag }} 예능 </option>
+                <option {{ videoForm.tag }} 자연 </option>
+                <option {{ videoForm.tag }} 학습 </option>
+            </select>
+        </div>
+        <div>
+        썸네일 : {{ videoForm.file }}
+        </div>
+        <div>
+        동영상파일 : {{ videoForm.file2 }}
+        </div>
+
+
+
+
+         <button type="submit" onclick="check">Upload</button>
+<!--         버튼을 누르면 원래 action이라고 적힌 부분을 반복하지만 없기 때문에 현재 url로 보낸다.-->
+
+
+    </form>
+{% endblock %}

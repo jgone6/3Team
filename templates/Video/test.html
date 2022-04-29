@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form class="row g-3 my-2" action="#" method="POST">
+            <div class="col-md-3">
+                <label for="inputcity" class="form-label">시, 도*</label>
+                <label for="inputcity" class="form-label" id="ssac_label"></label>
+                <script type="text/javascript">
+                    function select_gu(obj) {
+                        if (obj.value == "서울특별시") {
+                            document.getElementById("inputCounty").innerHTML = `
+                                <option value='gangname'>강남구</option>
+                                <option value='gangdong'>강동구</option>
+                                <option value='gangbuk'>강북구</option>
+                                <option value='gangname'>강서구</option>
+                                <option value='nowon'>노원구</option>
+                                <option value='dobong'>도봉구</option>
+                            `;
+                        }
+                        else if (obj.value == "경기도") {
+                            document.getElementById("inputCounty").innerHTML = `
+                                <option value='goyang'>고양시</option>
+                                <option value='uijeongbu'>의정부시</option>
+                                <option value='yangju'>양주시</option>
+                                <option value='namyangju'>남양주시</option>
+                                <option value='guri'>구리시</option>
+                                <option value='dongducheon'>동두천시</option>
+                            `;
+                        }
+                        else {
+                            document.getElementById("inputCounty").innerHTML = `
+                                <option value='none'>아직 안정함</option>
+                             `;
+                        }
+                    }
+                </script>
+                <select id="inputcity" class="form-select" name="jcity" required onchange="select_gu(this);">
+                    <option value="서울특별시"selected>서울특별시</option>
+                    <option value="경기도">경기도</option>
+                    <option value="인천광역시">인천광역시</option>
+                    <option value="대전광역시">대전광역시</option>
+                    <option value="세종특별자치시">세종특별자치시</option>
+                    <option value="대구광역시">대구광역시</option>
+                    <option value="광주광역시">광주광역시</option>
+                    <option value="울산광역시">울산광역시</option>
+                    <option value="부산광역시">부산광역시</option>
+                    <option value="강원도">강원도</option>
+                    <option value="충청북도">충청북도</option>
+                    <option value="충청남도">충청남도</option>
+                    <option value="전라북도">전라북도</option>
+                    <option value="전라남도">전라남도</option>
+                    <option value="경상북도">경상북도</option>
+                    <option value="경상남도">경상남도</option>
+                    <option value="제주특별자치도">제주특별자치도</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="inputCounty" class="form-label">군,구*</label>
+                <select id="inputCounty" class="form-select" name="jcounty" required>
+                    <option value="none">선택하세요</option>
+                </select>
+            </div>
+        </form>
+
+
+</body>
+</html>

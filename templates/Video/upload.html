@@ -1,0 +1,96 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <!--&lt;!&ndash;    {{ form.title }}&ndash;&gt;  하나씩 뽑아오기-->
+    <div>
+        제목 : {{ form.title }}
+    </div>
+    <div>
+        태그 :
+        <div>
+            <select onchange="selectBoxChange({{ form.tag }});">
+                <option {{ form.tag }} 음악
+                </option>
+                <option {{ form.tag }} 예능
+                </option>
+                <option {{ form.tag }} 자연
+                </option>
+                <option {{ form.tag }} 학습
+                </option>
+            </select>
+
+
+
+        </div>
+        <a>태그는 음악,예능,자연,학습만 입력해주세요</a>
+
+    </div>
+
+    <div>
+        썸네일 : {{ form.file }}
+    </div>
+    <div>
+        동영상파일 : {{ form.file2 }}
+    </div>
+
+    <button type="submit" onclick="check">Upload</button>
+
+
+</form>
+
+
+<script>
+
+<!--    function selectBoxChange(value) {-->
+<!--        var httpRequest = new XMLHttpRequest();-->
+<!--        httpRequest.onreadystatechange = function()-->
+<!--            {-->
+<!--                if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 )-->
+<!--                    {-->
+<!--                        var json = JSON.parse(httpRequest.responseText);-->
+<!--                        console.log(json['message']);-->
+
+
+
+<!--                    }-->
+
+<!--            };-->
+
+<!--        httpRequest.open("GET", "/Video/tag/" + value , true);-->
+<!--        httpRequest.send();-->
+<!--        console.log(value);-->
+
+<!--    }-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+{% endblock %}

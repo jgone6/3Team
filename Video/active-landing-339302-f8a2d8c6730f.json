@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "active-landing-339302",
+  "private_key_id": "f8a2d8c6730fee476c981c34bac22d0395bd4721",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDTE2fenvMMomm7\ngW9+YWzXqePwm7dlhGluBFRrn2Qdb8/VbDO/gdB/REtItrt0K06i9YVkgpyDMWhP\nAXfoYvK762T+0drgcau8iWGbaBuzJfvCTZFix+GekyTWqWsttSVwKfXAlpGxpNL4\n+5u8j4y0prSS7+bLC1YcbrxvhLDEOQfRmfHR6dPRmOo0SOtwU1H+3k2PQunww0Tz\nhBqYyM7t4rGnJ0fUBepJ6SJ9Wak/P0O47FPvddQacIhnBHwTt8PLFNR3/F6SCINk\nj6HC8erVYuF4USxzZHA1nqKZhLESMDDYb86Qj4WpPCb+GwA0q7A4ulBbuZZl2/Ax\nfAni+NitAgMBAAECggEAAYyV6ZNfE0up3P9xMwtCAj8z9hMegHc9UtpjSDruQC0O\n6HEX3CL2xchZiRoWPB8JP7bvmLJAtdHKAzJuj90SDQEIR7qAkb8j1IlplvtnoKP5\nug5Zr9DpvgE0dwLdT4OR18XnENfKD/S2u68VEIg5LyY+EwoBtqHJqwHBDkx6A6ao\nFk2WssMVz6J1ip0RhJWUiRsvI+3esMt1A4N/yf4u9SqeaK7uQH/wMyt+GyYqQJxU\nMuP/dUm4ddEXkNVnYcgMJTEKeqdy1gnSQ36i3DYMBQk+U3QzSkyUGY0E3BhdyF4n\n7/pvDoQXCgQDxJJj1eSiqqTYjwZaL0muxzvG8GlvnQKBgQD1AaSW4wlVT0uVteEr\n2b4P60cE5WGjkHeqLS3+XVdDdOfwzrPZBx7Abaht1bssunBe8UIZixMJQr6AgH32\n/Pz5pDSgbKeke5a3hCWN9gWibnNIM1iLsDP05Kaj99zxBfdG7gJHtI5bT2XekcPB\nOqGjDZrz6yL5Z9SxoOrHaacYAwKBgQDcjAGYfAgbIdNbX75uV7pzNUUwpzaiGOYN\nN/Wd1UVlf5d0C10dJBYovQPineUO//mSs1XzdEHtrvPSt7S1bDBzRaVNOJvIuxWP\nkSqNwtwxeOQ6scwOqsbjkD1/XnmC+8GIcnrQVUYPJrb/Mj6L/6ShgqqyMl2Nv9Qd\nnINUeA4ljwKBgQCE2mQ2UVwRP1M8FgjIb2TJWwoClKNSPxc0VxVWlaSo9m6CvIL3\nTw4UyCGJlVjOkzY1tVrjYO9smR2VrpcfY+WFNM44o1JwNXfvgR+gD+TURFIMt5Lv\nBBfYVlgqF1Bd/Z8tfggMe9Kpnq8ddisQz0swkEMSutEXLn895oUIpritowKBgEW+\njL6g8ptJ7iHmPD1+xrqqLPA+4NsQDqg9exHnoOOBHu8WrOKLR+qoI3NlxUsiDdWj\nmtm7eSHmArsvVxlMVmINs0GhVjp7V00odhGQfruyZFJfaY112iGauqftw3V1kfVJ\nZqc9YENoVdSMGhWByZk9zic+IDG0aSrYFPwAX1DnAoGADPQeHhQrtctyJfDWh/y1\nwQxjZtR7TqkIH5EGoTnS2q/zq5X4ZiwlCGLrNDFbHkgab+pcpn5j51FWdcBrH6IA\nnUmh8x6JJHtpxMEjwENQ0Z94BmmppANJh8PeDD/Z7V/zhgxahmIrTsX5a5Oe3eMQ\n0U4ViZrLe1zjGn2uA2XDTq4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "alphatube@active-landing-339302.iam.gserviceaccount.com",
+  "client_id": "107379712904137550424",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/alphatube%40active-landing-339302.iam.gserviceaccount.com"
+}

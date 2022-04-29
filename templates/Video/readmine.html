@@ -1,0 +1,27 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+{% load static %}
+
+    {% if read %}   <!--read안에 데이터가 담겨 있으면 반복문을 실행한다. -->
+              <div>
+                <tr>
+                  <td> {{read.id}} </td>  <!--read라는 객체 안에 있는 id를 보여준다 -->
+                  <td> {{read.title }} </td>
+<!--                  <td> {{read.file}}  </td>-->
+                    <td> {{read.tag}}  </td>
+                  <td> {{read.create_date }}  </td>
+                </tr>
+                  </div>
+            <div>
+                  <tr>
+                       <video height="500" controls poster="/media/{{ read.file }}">
+      <source src="/media/{{ read.file2 }}" type="video/mp4">
+      <strong>Your browser does not support the video tag.</strong>
+    </video>
+                    </tr>
+              </div>
+
+    {% endif %}
+
+
+{% endblock %}
